@@ -1,26 +1,28 @@
 #include <vector>
 #include <iostream>
-#include <tuple>
 #include <random>
 
 class Board
 {
 public:
-	Board(int, double);
+	Board(int, int, double);
 	~Board();
 	//getters
 	int getSize();
-	std::vector<std::tuple<int,int>> getLadders();
+	std::vector<int*> getLadders();
 	//setters
 	void setSize(int);
 
 
 	std::vector<int> calculateOptimalRolls();
 	int getTotalSpaces();
+
+
 	friend std::ostream& operator<<(std::ostream&, const Board&);
 
 private:
 	int size;
-	std::vector<std::tuple<int,int>> ladders;	
+	int dicesize;
+	std::vector<int*> ladders;	
 
 };
